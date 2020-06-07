@@ -1,0 +1,7 @@
+{
+  "name": "GunsNRoses",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
