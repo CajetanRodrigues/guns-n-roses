@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon (click)="navigatePrev()"  slot="start" name="arrow-back-outline"></ion-icon>
+    <ion-title>Playlist</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="playlist-cover-container">
+<img class="playlist-cover" src="{{playlistCover}}">
+</div>
+  <ion-grid>
+    <ion-row (click)="playSong(track)" *ngFor="let track of tracks">
+        <ion-col size="2">
+          <img class="track-cover" src="{{track.track.album.images[0].url}}">
+        </ion-col>
+        <ion-col size="10">
+          <div class="song-big" style="color:#92949c">{{track.track.album.name}}</div>
+          <div class="album" style="color:#ffc409">{{track.track.artists[0].name}}</div>.
+          <div class="song" style="color:#92949c">{{track.track.album.name}}</div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
+  
+  <div class="footer">
+<ion-footer mode="ios">
+  <ion-toolbar id="container">
+    <ion-grid>
+    <ion-row>
+        <ion-col size="2">
+          <img class="track-cover" src="https://i.scdn.co/image/608c7b23420c9556a7eabd9097f7e171a91d3871">
+        </ion-col>
+        <ion-col size="8">
+          <div class="song-playing" style="color:#92949c">{{currentSongName}}</div>
+          <div class="album-playing" style="color:#ffc409">{{currentSongAlbum}}</div>
+        </ion-col>
+        <ion-col size="2">
+          <ion-icon *ngIf="!songPlaying" name="play" (click)="togglePlayPause()"></ion-icon>
+          <ion-icon *ngIf="songPlaying" name="pause" (click)="togglePlayPause()"></ion-icon>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+</div>

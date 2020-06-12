@@ -24,3 +24,12 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.cen {
+    display: block;
+    text-align: center;
+    margin: auto
+}
+.mar  {
+    margin:10px;
+}

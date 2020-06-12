@@ -1,7 +1,8 @@
 {
   "name": "GunsNRoses",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

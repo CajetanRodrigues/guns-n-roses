@@ -1,3 +1,5 @@
+import { PlaylistsService } from './../providers/playlists.service';
+import { AuthService } from './../providers/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
-  constructor() {}
+  playlists = [];
+  constructor(private authService: AuthService, private playlistsService: PlaylistsService) {
+    this.authService.fetchToken().subscribe((tokendData) => {
+      this.playlistsService.fetchUserPlaylists(tokendData.access_token)
+      .subscribe((data) => {
+        this.playlists = data.items;
+        console.log(data);
+      });
+    });
+  }
 
 }
